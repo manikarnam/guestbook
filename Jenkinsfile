@@ -5,7 +5,7 @@ node{
     }
     
     stage('Build Docker Image'){
-	    sh "sudo docker build -t maniengg/php-redis:latest php-redis/"
+	    batch "sudo docker build -t maniengg/php-redis:latest php-redis/"
     }
     stage('Build redis Docker image'){
 	    sh "sudo docker build -t maniengg/redis-follower:latest redis-follower/"
