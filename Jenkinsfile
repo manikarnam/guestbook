@@ -3,11 +3,6 @@ node{
     stage('SCM Checkout'){
         git credentialsId: 'GIT_CREDENTIALSS', url: 'https://github.com/manikarnam/guestbook.git', branch: 'master'
     }
-	
-  # stage('This stage shows the user'){
-	#  sh "whoami"
-		
-	#}
     
     stage('Build Docker Image'){
 	    sh "sudo docker build -t maniengg/php-redis:latest php-redis/"
