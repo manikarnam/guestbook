@@ -5,18 +5,18 @@ node{
     }
     
     stage('Build Docker Image'){
-	    bat "sudo docker build -t maniengg/php-redis:latest php-redis/"
+	    bat "docker build -t maniengg/php-redis:latest php-redis/"
     }
     stage('Build redis Docker image'){
-	    sh "sudo docker build -t maniengg/redis-follower:latest redis-follower/"
+	    bat "docker build -t maniengg/redis-follower:latest redis-follower/"
     }
     
     stage('Push Docker Image'){
         withCredentials([string(credentialsId: 'DOKCER_HUB_PASSWORD', variable: 'DOKCER_HUB_PASSWORD')]) {
-          sh "sudo docker login -u maniengg -p ${DOKCER_HUB_PASSWORD}"
+          bat "docker login -u maniengg -p ${DOKCER_HUB_PASSWORD}"
         }
-        sh "sudo docker push maniengg/php-redis:latest"
-	sh "sudo docker push maniengg/redis-follower:latest"
+        bat "docker push maniengg/php-redis:latest"
+	bat "docker push maniengg/redis-follower:latest"
      }
      
     /** stage("Deploy To Kuberates Cluster"){
