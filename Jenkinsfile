@@ -28,6 +28,7 @@ node{
      }**/
 	 
      stage("Deploy To Kuberates Cluster"){
+      container ('kubectl') {
         withCredentials([file(credentialsId: 'GOOGLE_APPLICATION_CREDENTIALS', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
         // sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
         // sh "gcloud config set project mssdevops-284216"
@@ -43,4 +44,5 @@ node{
 	 bat "kubectl apply -f redis-leader-service.yaml"
         }
       }
+  }
 }
