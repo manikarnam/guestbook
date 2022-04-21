@@ -28,8 +28,7 @@ node{
      }**/
 	 
      stage("Deploy To Kuberates Cluster"){
-      container ('kubectl') {
-        withCredentials([file(credentialsId: 'GOOGLE_APPLICATION_CREDENTIALS', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+         withCredentials([file(credentialsId: 'kubeconfignew', variable: 'kubeconfignew')]) {
         // sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
         // sh "gcloud config set project mssdevops-284216"
         // sh "gcloud config set compute/zone us-central1-c"
