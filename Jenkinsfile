@@ -37,10 +37,10 @@ node{
          //sh "sed -i -e 's,image_to_be_deployed,'maniengg/spring-boot-mongo:${BUILD_ID}',g' springBootMongo.yml"
          bat "kubectl apply -f frontend-deployment.yaml"      
          bat "kubectl apply -f frontend-service.yaml"
-	 bat "kubectl apply -f redis-follower-deployment.yaml"
-         bat "kubectl apply -f redis-follower-service.yaml"
-	 bat "kubectl apply -f redis-leader-deployment.yaml"
-	 bat "kubectl apply -f redis-leader-service.yaml"
+	// bat "kubectl apply -f redis-follower-deployment.yaml"
+        // bat "kubectl apply -f redis-follower-service.yaml"
+	// bat "kubectl apply -f redis-leader-deployment.yaml"
+	// bat "kubectl apply -f redis-leader-service.yaml"
         }
       }
   }
